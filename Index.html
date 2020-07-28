@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>DEV SAMURAI</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Lista de Convidados</h1>
+
+        <ul id="lista"></ul>
+
+        <p></p>
+
+        <input id="inputNome" type="text" placeholder="Digite um Convidado">
+        <input id="inputIdade" type="number" placeholder="Idade">
+        <button id="botao"> Inserir </button>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        var elLista = document.getElementById("lista")
+        var elCampoNome = document.getElementById("inputNome")
+        var elCampoIdade = document.getElementById("inputIdade")
+        var elBotao = document.getElementById("botao")
+
+        var convidados = []
+
+        function listarConvidados() {            
+            elLista.innerHTML = ""
+            for (convidado of convidados) {                
+                var elConvidado = document.createElement("li")
+                var elNome = document.createTextNode(convidado.nome + " - " + convidado.idade)
+
+                elConvidado.appendChild(elNome)
+                elLista.appendChild(elConvidado)
+            }
+        }
+
+
+        var adicionarConvidado = function () {
+            var convidado = []
+            convidado.nome = elCampoNome.value
+            convidado.idade = elCampoIdade.value
+            convidados.push(convidado)
+
+            listarConvidados()
+
+        }
+
+        elBotao.onclick = adicionarConvidado
+
+
+
+    </script>
+
+</body>
+
+</html>
